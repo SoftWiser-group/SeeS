@@ -429,4 +429,3 @@ if __name__  == '__main__':
        
     model.run_training()
     model.run_testing()
-    print('Data: {}, Parameters: [{}, {}, {}, {}]'.format(data_path,N_LAYERS, N_HEADS, HID_DIM, MAX_EPOCHES))
