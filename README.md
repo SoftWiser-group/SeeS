@@ -24,7 +24,7 @@ For future value prediction:
 	...
 	Testing...
 	Time: 0m 0s
-	Testing loss: 0.7165693044662476
+	Testing loss: 0.737294614315033
 	$ 
 
 ## Contents
