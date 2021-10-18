@@ -1,10 +1,10 @@
 # SeeS
-
+Python implementation of paper *Structure Meets Sequences: Predicting Network ofCo-evolving Sequences* (WSDM 2022)
 
 ## Requirements
 
-- PyTorch
-- matplitlib
+- Python >= 3.6
+- PyTorch >= 1.8
 
 ## Usage
 
