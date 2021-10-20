@@ -6,6 +6,7 @@ import random
 import time
 from scipy.io import loadmat
 import os
+import argparse
 
 from encoder import *
 from decoder import *
@@ -19,6 +20,19 @@ def epoch_time(start_time, end_time):
     elapsed_mins = int(elapsed_time / 60)
     elapsed_secs = int(elapsed_time - (elapsed_mins * 60))
     return elapsed_mins, elapsed_secs
+
+def load_parameters(args):
+    HID_DIM = args.window_size
+    PF_DIM = 2* args.window_size
+    N_LAYERS = args.layers
+    N_HEAD = args.heads
+    MAX_EPOCHES = args.max_epoches
+    PATIENCE = args.patience
+    LEARNING_RATE = args.learning_rate
+    SEED = args.rand_seed
+    BATCH_SIZE = args.batch_size
+
+    return args.input
 
 class Sees_model(nn.Module):
     
@@ -404,9 +418,23 @@ class Sees_model(nn.Module):
         print('-------------------------------------------------')
         
 if __name__  == '__main__':
-    
-    data_path = 'motion/jump'
+
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--input', type=str, default='motion/jump', help='')
+    parser.add_argument('--window_size', type=int, default=5, help='')
+    parser.add_argument('--max_epoches', type=int, default=400, help='')
+    parser.add_argument('--patience', type=int, default=10, help='')
+    parser.add_argument('--hid_dim', type=int, default=8, help='')
+    parser.add_argument('--layers', type=int, default=2, help='')
+    parser.add_argument('--heads', type=int, default=2, help='')
+    parser.add_argument('--learning_rate', type=float, default=0.0001, help='')
+    parser.add_argument('--rand_seed', type=int, default=123, help='')
+    parser.add_argument('--batch_size', type=int, default=32, help='')
+
+    args = parser.parse_args()
+    data_path = load_parameters(args)
     
     random.seed(SEED)
     np.random.seed(SEED)

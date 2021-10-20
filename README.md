@@ -10,11 +10,15 @@ Python implementation of paper *Structure Meets Sequences: Predicting Network of
 
 For missing value recovery (single value prediction):
 
-	$ python main.py --input motion/jump
+	$ python main.py
 
 For future value prediction:
 
-	$ python seesfuture.py --input motion/jump
+	$ python seesfuture.py
+	
+If you need to use other setting and dataset, please use the following command to see the detailed description:
+
+	$ python main.py -h
 
 ## example
 
